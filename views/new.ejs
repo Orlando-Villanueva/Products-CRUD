@@ -19,9 +19,9 @@
     <br><br>
     <label for="category">Choose a category: </label>
     <select name="category" id="category">
-      <option value="fruit">Fruit</option>
-      <option value="vegetable">Vegetable</option>
-      <option value="dairy">Dairy</option>
+      <% for(let category of categories){ %>
+      <option value="<%= category %>"><%= category.charAt(0).toUpperCase() + category.slice(1) %></option>
+      <% } %>
     </select>
     <br><br>
     <button>Submit</button>

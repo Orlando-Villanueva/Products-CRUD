@@ -15,7 +15,7 @@
       Name : <%= name %>
     </li>
     <li>
-      Category : <%= category %>
+      Category : <%= category.charAt(0).toUpperCase() + category.slice(1) %>
     </li>
     <li>
       Price : $<%= price %>
@@ -26,7 +26,7 @@
   </a>
   <br><br>
   <a href="/products">
-    <button>Go back</button>
+    <button>Return</button>
   </a>
 
 </body>

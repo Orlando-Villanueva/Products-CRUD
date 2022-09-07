@@ -22,6 +22,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
 
+const categories = ['fruit', 'vegetable', 'dairy']
+
 // open all products page
 app.get('/products', async (req, res) => {
     let products = await Product.find({})
@@ -31,14 +33,14 @@ app.get('/products', async (req, res) => {
 
 // open new product page
 app.get('/products/new', (req, res) => {
-    res.render('new')
+    res.render('new', { categories })
 })
 
 // open edit product page
 app.get('/products/edit/:id', async (req, res) => {
     const { id } = req.params
     const product = await Product.findById(id)
-    res.render('edit', { product })
+    res.render('edit', { product, categories })
 })
 
 // open product details page
