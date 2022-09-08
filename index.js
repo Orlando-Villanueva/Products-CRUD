@@ -24,7 +24,7 @@ app.use(methodOverride('_method'))
 
 const categories = ['fruit', 'vegetable', 'dairy']
 
-// open all products page
+// open my products page
 app.get('/products', async (req, res) => {
     let products = await Product.find({})
     console.log(products.length + " products found and listed.")
@@ -67,6 +67,15 @@ app.put('/edit/:id', async (req, res) => {
     console.log("This product was modified :")
     console.log(product)
     res.redirect(`/products/${product._id}`)
+})
+
+// DELETE request : delete a product
+app.delete('/delete/:id', async (req, res) => {
+    const { id } = req.params
+    const product = await Product.findByIdAndDelete(id)
+    console.log("Deleted product :")
+    console.log(product)
+    res.redirect('/products')
 })
 
 app.listen(3000, () => {

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <% const {name, category, price, id} = product %> 
+  <% const {name, category, price, _id} = product %>
   <title>Product details</title>
 </head>
 
@@ -21,10 +21,17 @@
       Price : $<%= price %>
     </li>
   </ul>
-  <a href="/products/edit/<%= id %>">
-    <button>Edit</button>
+  <a href="/products/edit/<%= _id %>">
+    <button style="color:darkgreen">Edit</button>
   </a>
+  <!-- <a href="/products/edit/<%= _id %>">
+    <button style="margin-left: 5px; color:red;">Delete</button>
+  </a> -->
   <br><br>
+  <form action="/delete/<%=_id%>?_method=DELETE" method="POST">
+    <button style="color:red" onclick="return window.confirm('Delete this product?')">Delete</button>
+  </form>
+  <br>
   <a href="/products">
     <button>Return</button>
   </a>

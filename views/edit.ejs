@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <% const {name, category, price, id} = product %>
+  <% const {name, category, price, _id} = product %>
   <title>Edit product</title>
 </head>
 
 <body>
   <h1>Edit Product</h1>
-  <form action="/edit/<%=id%>?_method=PUT" method="POST">
+  <form action="/edit/<%=_id%>?_method=PUT" method="POST">
     <label for="name">Product Name: </label>
     <input type="text" name="name" id="name" placeholder="Enter name here" value="<%= product.name %>">
     <br><br>
@@ -24,10 +24,10 @@
       <% } %>
     </select>
     <br><br>
-    <button>Submit</button>
+    <button>Confirm</button>
   </form>
   <br>
-  <a href="/products/<%= id %>">
+  <a href="/products/<%= _id %>">
     <button>Cancel</button>
   </a>
 
